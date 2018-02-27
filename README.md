@@ -1,23 +1,5 @@
-# Three.js Spaceship Boilerplate
+# Three.js Model Mouse Tracker
 
-[![mit-licence](http://img.shields.io/:license-mit-blue.svg)](http://opensource.org/licenses/MIT) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
-
-A three.js example that displays a rotating spaceship model on a page.
-
-## Usage
-
- - Clone this repository
- - Run `npm install webpack-dev-server -g`
- - Run `npm install`
- - Run `webpack-dev-server`
- - This will run a server at localhost:8080 where you will see a rotating spaceship
-
-## Extending the Boilerplate
-
-- Rename the directory
-- Update the remote url with `git remote set-url origin git@github.com:USERNAME/REPOSITORY.git`
-
-## Linting
-
-- This project is Standard compliant
-- Run `npm install -g standard` and `standard` in the `/js` folder to check for linting errors
+* Project loads model from `model/model.json`
+* Places it in the center of the screen
+* Follows cursor with slight delay
