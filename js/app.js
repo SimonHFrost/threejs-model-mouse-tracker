@@ -22,7 +22,8 @@ loader.load(modelPath, function (geometry) {
 
 // Translating the plane changes the look at distance of the model
 // Translate between 1 and 5 for varying degrees of looking sensitivity
-const PLANE_DISTANCE = 1;
+const PLANE_DISTANCE = 1
+const LOOK_DELAY = 200
 
 var plane = new THREE.Plane(new THREE.Vector3(0, 0, -1), 0)
 plane.translate(new THREE.Vector3(0, 0, PLANE_DISTANCE))
@@ -32,13 +33,16 @@ var mouse = new THREE.Vector2()
 var intersectPoint = new THREE.Vector3()
 
 function onDocumentMouseMove (event) {
-  mouse.x = (event.clientX / window.innerWidth) * 2 - 1
-  mouse.y = -(event.clientY / window.innerHeight) * 2 + 1
+  setTimeout(() => {
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1
+    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1
 
-  raycaster.setFromCamera(mouse, camera)
-  raycaster.ray.intersectPlane(plane, intersectPoint)
-  spaceship.lookAt(intersectPoint)
-  spaceship.rotateY(Math.PI / 2) // Model's front is the side, so rotate it by 90 degrees
+    raycaster.setFromCamera(mouse, camera)
+    raycaster.ray.intersectPlane(plane, intersectPoint)
+
+    spaceship.lookAt(intersectPoint)
+    spaceship.rotateY(Math.PI / 2) // Model's front is the side, so rotate it by 90 degrees
+  }, 200)
 }
 
 document.addEventListener('mousemove', onDocumentMouseMove, false)
