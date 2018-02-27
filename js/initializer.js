@@ -7,7 +7,14 @@ function createRenderer () {
     antialias: true
   })
   renderer.setSize(window.innerWidth, window.innerHeight)
-  document.body.appendChild(renderer.domElement)
+
+  var containerComponent = document.getElementById('webgl')
+  if (containerComponent) {
+    containerComponent.appendChild(renderer.domElement)
+  } else {
+    console.warn('You need to have an element with id \'webgl\' so I know where to put this component')
+  }
+
   return renderer
 }
 
