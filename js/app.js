@@ -3,7 +3,7 @@ var THREE = require('three')
 var initialize = require('./initializer.js').initialize
 var createAmbientLight = require('./object-creator.js').createAmbientLight
 var createDirectionalLight = require('./object-creator.js').createDirectionalLight
-var createSpaceship = require('./object-creator.js').createSpaceship
+var createModel = require('./object-creator.js').createModel
 
 var output = initialize()
 var scene = output.scene
@@ -11,13 +11,13 @@ var camera = output.camera
 
 var loader = new THREE.JSONLoader()
 
-var spaceship = null
+var model = null
 var modelPath = 'model/model.json'
 
 loader.load(modelPath, function (geometry) {
-  spaceship = createSpaceship(geometry)
-  spaceship.rotateY(Math.PI / 2)
-  scene.add(spaceship)
+  model = createModel(geometry)
+  model.rotateY(Math.PI / 2)
+  scene.add(model)
 })
 
 // Translating the plane changes the look at distance of the model
@@ -41,8 +41,8 @@ function onDocumentMouseMove (event) {
     raycaster.setFromCamera(mouse, camera)
     raycaster.ray.intersectPlane(plane, intersectPoint)
 
-    spaceship.lookAt(intersectPoint)
-    spaceship.rotateY(Math.PI / 2) // Model's front is the side, so rotate it by 90 degrees
+    model.lookAt(intersectPoint)
+    model.rotateY(Math.PI / 2) // Model's front is the side, so rotate it by 90 degrees
   }, 200)
 }
 

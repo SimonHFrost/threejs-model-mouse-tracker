@@ -10,26 +10,26 @@ function createDirectionalLight () {
   return directionalLight
 }
 
-function createSpaceship (geometry) {
+function createModel (geometry) {
   var material = new THREE.MeshLambertMaterial({
     color: '#ed8989',
     flatShading: true
   })
 
-  var spaceship = new THREE.Mesh(
+  var model = new THREE.Mesh(
     geometry,
     material
   )
 
-  spaceship.scale.x = 0.1
-  spaceship.scale.y = 0.1
-  spaceship.scale.z = 0.1
+  model.scale.x = 0.1
+  model.scale.y = 0.1
+  model.scale.z = 0.1
 
-  return spaceship
+  return model
 }
 
 module.exports = {
   createAmbientLight: createAmbientLight,
   createDirectionalLight: createDirectionalLight,
-  createSpaceship: createSpaceship
+  createModel: createModel
 }
