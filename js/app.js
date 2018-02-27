@@ -33,6 +33,7 @@ var mouse = new THREE.Vector2()
 var intersectPoint = new THREE.Vector3()
 
 function onDocumentMouseMove (event) {
+  // Delay following the mouse to mimic human reaction speed
   setTimeout(() => {
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1
     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1
