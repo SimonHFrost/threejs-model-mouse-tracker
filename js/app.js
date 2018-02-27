@@ -16,13 +16,16 @@ var modelPath = 'model/spaceship.json'
 
 loader.load(modelPath, function (geometry) {
   spaceship = createSpaceship(geometry)
+  spaceship.rotateY(Math.PI / 2)
   scene.add(spaceship)
 })
 
-var plane = new THREE.Plane(new THREE.Vector3(0, 0, -1), 0)
 // Translating the plane changes the look at distance of the model
 // Translate between 1 and 5 for varying degrees of looking sensitivity
-plane.translate(new THREE.Vector3(0, 0, 1))
+const PLANE_DISTANCE = 1;
+
+var plane = new THREE.Plane(new THREE.Vector3(0, 0, -1), 0)
+plane.translate(new THREE.Vector3(0, 0, PLANE_DISTANCE))
 
 var raycaster = new THREE.Raycaster()
 var mouse = new THREE.Vector2()
