@@ -3,9 +3,9 @@ var THREE = require('three')
 
 function createRenderer () {
   var renderer = new THREE.WebGLRenderer({
+    alpha: true,
     antialias: true
   })
-  renderer.setClearColor(new THREE.Color('lightblue'), 1)
   renderer.setSize(window.innerWidth, window.innerHeight)
   document.body.appendChild(renderer.domElement)
   return renderer
