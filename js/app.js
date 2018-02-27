@@ -12,7 +12,7 @@ var camera = output.camera
 var loader = new THREE.JSONLoader()
 
 var spaceship = null
-var modelPath = 'model/spaceship.json'
+var modelPath = 'model/model.json'
 
 loader.load(modelPath, function (geometry) {
   spaceship = createSpaceship(geometry)
