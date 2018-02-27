@@ -43,7 +43,7 @@ function onDocumentMouseMove (event) {
 
     model.lookAt(intersectPoint)
     model.rotateY(Math.PI / 2) // Model's front is the side, so rotate it by 90 degrees
-  }, 200)
+  }, LOOK_DELAY)
 }
 
 document.addEventListener('mousemove', onDocumentMouseMove, false)
